@@ -1,14 +1,10 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : Health
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void Die()
     {
-        Debug.Log("Hit by: " + collision.gameObject.name);
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
-        {
-            Destroy(gameObject);
-        }
+        base.Die();
+        Debug.Log("Enemy died");
     }
 }
